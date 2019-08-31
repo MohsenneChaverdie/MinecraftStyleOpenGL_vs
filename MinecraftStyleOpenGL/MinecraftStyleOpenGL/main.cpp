@@ -15,29 +15,29 @@ struct MyApp : public Helper::App
 {
 	GLuint viewID{}, projectionID{};
 
-	Helper::Shader *shader{};
+	Helper::Shader* shader{};
 
-	Helper::Mouse *mouseHelper{};
+	Helper::Mouse* mouseHelper{};
 
-	Helper::Keyboard *keyboardHelper{};
+	Helper::Keyboard* keyboardHelper{};
 
-	Helper::Cube *cubeSkyBox{};
+	Helper::Cube* cubeSkyBox{};
 
-	Helper::Cube *cubeGrass{};
+	Helper::Cube* cubeGrass{};
 
-	Helper::Cube *cubeStone{};
+	Helper::Cube* cubeStone{};
 
-	Helper::Cube *cubeDirt{};
+	Helper::Cube* cubeDirt{};
 
-	Helper::Cube *cubeWater{};
+	Helper::Cube* cubeWater{};
 
-	Helper::Cube *cubeCloud{};
+	Helper::Cube* cubeCloud{};
 
 	// to use to for having random values for noise generator
-	Helper::Random *random{};
+	Helper::Random* random{};
 
 	// to have clouds move ping pong between two values
-	Helper::Oscillator *oscillator{};
+	Helper::Oscillator* oscillator{};
 
 	// it is used for the random value generation
 	float generated_rand_seed{};
@@ -52,11 +52,17 @@ struct MyApp : public Helper::App
 	// the end height of the terrain
 	int total_Height = 10;
 
-	FastNoise generated_Noise;
+	// how big the terrain should be, it will be used in for loops length
+	int terrainUniAxisCapacity = 40;
+
+	// how big the cloud layer should be, it will be used in for loops
+	int cloudUniAxisCapacity = 70;
+
+	FastNoise generated_Noise_Terrain;
 
 	// different type of noise has been used for the clouds
 	// .. so to get more fractal parts
-	FastNoise generated_Noise_ForClouds;
+	FastNoise generated_Noise_Clouds;
 
 	// a vector that will hold some random values, to have on random some dirt layers
 	std::vector<int> generated_rand_dirt_layer = {};
@@ -72,7 +78,6 @@ struct MyApp : public Helper::App
 
 	void init()
 	{
-		// one shader has been used for all the cubes
 		shader = new Helper::Shader();
 
 		cubeSkyBox = new Helper::Cube(
@@ -107,31 +112,39 @@ struct MyApp : public Helper::App
 
 		keyboardHelper = new Helper::Keyboard();
 
-		// for terrain
-		generated_Noise.SetNoiseType(FastNoise::SimplexFractal);
+		// generating noise for terrain
+		generated_Noise_Terrain.SetNoiseType(FastNoise::SimplexFractal);
+		generated_Noise_Terrain.SetSeed(1337);
+		generated_Noise_Terrain.SetFrequency(0.02);
+		generated_Noise_Terrain.SetFractalOctaves(5);
+		generated_Noise_Terrain.SetFractalLacunarity(1.7);
+		generated_Noise_Terrain.SetFractalGain(0.6);
+		generated_Noise_Terrain.SetFractalType(FastNoise::Billow);
 
-		// for clouds
-		generated_Noise_ForClouds.SetNoiseType(FastNoise::Cellular);
+		// setting terrain noise type for clouds
+		generated_Noise_Clouds.SetNoiseType(FastNoise::Cellular);
 
-		// for terrain
+		// for terrain random noise feed
 		random = new Helper::Random(100000, 999999);
 
-		// for terrain
+		// for terrain noise feeds
 		generated_rand_seed = random->getGeneratedNumber();
 
-		generated_rand_dirt_layer.reserve(30);
+		// reserving some capacity, not to go out of rage
+		generated_rand_dirt_layer.reserve(terrainUniAxisCapacity);
 
-		generated_rand_cloud_layer.reserve(40);
+		// reserving some capacity, not to go out of rage
+		generated_rand_cloud_layer.reserve(cloudUniAxisCapacity);
 
 		// filling a vector to have on random some dirt layers
-		for (int i = 0; i < 30; ++i)
+		for (int i = 0; i < terrainUniAxisCapacity; ++i)
 		{
 			random = new Helper::Random(0, 5);
 			generated_rand_dirt_layer.push_back(random->getGeneratedNumber());
 		}
 
 		// filling a vector with random numbers to have more dis-jointed clouds
-		for (int i = 0; i < 40; ++i)
+		for (int i = 0; i < terrainUniAxisCapacity; ++i)
 		{
 			random = new Helper::Random(0, 30);
 			generated_rand_cloud_layer.push_back(random->getGeneratedNumber());
@@ -157,13 +170,13 @@ struct MyApp : public Helper::App
 
 		cubeSkyBox->InsideLoop(view, 1000000, glm::vec3(0, 0, 0), 0.0f, glm::vec3(0, 1, 0));
 
-		for (int x = 0; x < 30; ++x)
+		for (int x = 0; x < terrainUniAxisCapacity; ++x)
 		{
-			for (int z = 0; z < 30; ++z)
+			for (int z = 0; z < terrainUniAxisCapacity; ++z)
 			{
-				auto perlin_x = ((float)x / 2.0f + generated_rand_seed) / terrain_detail;
-				auto perlin_z = ((float)z / 2.0f + generated_rand_seed) / terrain_detail;
-				auto max_y = (int)(generated_Noise.GetNoise(perlin_x, perlin_z) * height_multiplier);
+				auto noise_feed_x = ((float)x / 2.0f + generated_rand_seed) / terrain_detail;
+				auto noise_feed_y = ((float)z / 2.0f + generated_rand_seed) / terrain_detail;
+				auto max_y = (int)(generated_Noise_Terrain.GetNoise(noise_feed_x, noise_feed_y) * height_multiplier);
 
 				max_y += total_Height;
 
@@ -189,7 +202,7 @@ struct MyApp : public Helper::App
 						cubeStone->InsideLoop(view, 10, glm::vec3(x * 20, y * 20, z * 20), -90.0f, glm::vec3(1, 0, 0));
 					}
 				}
-			}	
+			}
 		}
 
 		// to have moving clouds, we need time
@@ -200,26 +213,32 @@ struct MyApp : public Helper::App
 		bool checker = false;
 
 		// main loops for the clouds
-		for (int x1 = 0; x1 < 40; ++x1)
+		for (int x1 = 0; x1 < cloudUniAxisCapacity; ++x1)
 		{
-			for (int z1 = 0; z1 < 40; ++z1)
+			for (int z1 = 0; z1 < cloudUniAxisCapacity; ++z1)
 			{
-				auto perlin_x = ((float)x1 / 2.0f + generated_rand_seed) / 0.04;
-				auto perlin_z = ((float)z1 / 2.0f + generated_rand_seed) / 0.04;
+				auto tempX = (float)x1 / 2.0f;
+				auto tempY = (float)z1 / 2.0f;
 
-				auto max_y = (int)(generated_Noise_ForClouds.GetNoise(perlin_x, perlin_z) * 10);
+				auto tempX1 = tempX + generated_rand_seed;
+				auto tempY1 = tempY + generated_rand_seed;
+
+				auto noise_feed_x = tempX1 / 0.04;
+				auto noise_feed_y = tempY1 / 0.04;
+
+				auto max_y = (int)(generated_Noise_Clouds.GetNoise(noise_feed_x, noise_feed_y) * 10);
 
 				max_y += 5;
 
 				if (z1 > generated_rand_cloud_layer[x1] && generated_rand_cloud_layer[x1] < z1)
 				{
 					cubeCloud->InsideLoop(view,
-						10,
+						20,
 						glm::vec3(
-						(float)x1 * 20 + oscillator->normalize(time) +
-							(float)(checker ? -20 : +20),
-							max_y * 20 + 500,
-							(float)z1 * 20 + (float)(checker ? -20 : +20)),
+						(float)x1 * 40 + oscillator->normalize(time) +
+							(float)(checker ? -40 : +40) - 1000,
+							max_y * 40 + 500,
+							(float)z1 * 40 + (float)(checker ? -40 : +40) - 1000),
 						-90.0f,
 						glm::vec3(1, 0, 0));
 					checker = !checker;

@@ -2,19 +2,22 @@
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_app.h(67,1): warning C4305:  'argument': truncation from 'double' to 'GLclampf'
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\gl_bitmap.h(44,24): warning C4244:  'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\gl_random.h(25,36): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(130,66): warning C4244:  'argument': conversion from 'float' to '_Ty', possible loss of data
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(130,66): warning C4244:         with
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(130,66): warning C4244:         [
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(130,66): warning C4244:             _Ty=int
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(130,66): warning C4244:         ]
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(137,67): warning C4244:  'argument': conversion from 'float' to '_Ty', possible loss of data
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(137,67): warning C4244:         with
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(137,67): warning C4244:         [
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(137,67): warning C4244:             _Ty=int
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(137,67): warning C4244:         ]
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(196,1): warning C4305:  '+=': truncation from 'double' to 'float'
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(209,70): warning C4244:  'argument': conversion from 'double' to 'FN_DECIMAL', possible loss of data
-D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(209,60): warning C4244:  'argument': conversion from 'double' to 'FN_DECIMAL', possible loss of data
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(118,1): warning C4305:  'argument': truncation from 'double' to 'FN_DECIMAL'
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(120,1): warning C4305:  'argument': truncation from 'double' to 'FN_DECIMAL'
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(121,1): warning C4305:  'argument': truncation from 'double' to 'FN_DECIMAL'
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(143,66): warning C4244:  'argument': conversion from 'float' to '_Ty', possible loss of data
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(143,66): warning C4244:         with
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(143,66): warning C4244:         [
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(143,66): warning C4244:             _Ty=int
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(143,66): warning C4244:         ]
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(150,67): warning C4244:  'argument': conversion from 'float' to '_Ty', possible loss of data
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(150,67): warning C4244:         with
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(150,67): warning C4244:         [
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(150,67): warning C4244:             _Ty=int
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(150,67): warning C4244:         ]
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(210,1): warning C4305:  '+=': truncation from 'double' to 'float'
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(229,70): warning C4244:  'argument': conversion from 'double' to 'FN_DECIMAL', possible loss of data
+D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\main.cpp(229,56): warning C4244:  'argument': conversion from 'double' to 'FN_DECIMAL', possible loss of data
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_window.h(18,43): warning C4244:  'argument': conversion from 'double' to 'int', possible loss of data
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_window.h(72): message :  see reference to function template instantiation 'void Helper::TemplateWrapper::OnMouseMove<t>(GLFWwindow *,double,double)' being compiled
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_window.h(72): message :         with
@@ -26,10 +29,9 @@ D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleO
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_app.h(28): message :         [
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_app.h(28): message :             t=Helper::App
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_app.h(28): message :         ]
-  FastNoise.cpp
 D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\MinecraftStyleOpenGL\Helper\glfw_window.h(18,40): warning C4244:  'argument': conversion from 'double' to 'int', possible loss of data
   Generating code
   Previous IPDB not found, fall back to full compilation.
-  All 451 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 456 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   MinecraftStyleOpenGL.vcxproj -> D:\GitHub\uniCGL\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL_vs\MinecraftStyleOpenGL\Release\MinecraftStyleOpenGL.exe
