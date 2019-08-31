@@ -8,12 +8,12 @@
 
 - Through Visual Studio Project properties, the above mentioned libraries should be refererenced:
   - C/C++ -> General -> Additional Include Directories:
-     - $(SolutionDir)\MinecraftStyleOpenGL\Dependencies\glew-2.1.0\include
-     - $(SolutionDir)\MinecraftStyleOpenGL\Dependencies\glm-0.9.9.5\glm
-     - $(SolutionDir)\MinecraftStyleOpenGL\Dependencies\GLFW_3.3\include
+     - ```$(SolutionDir)\MinecraftStyleOpenGL\Dependencies\glew-2.1.0\include```
+     - ```$(SolutionDir)\MinecraftStyleOpenGL\Dependencies\glm-0.9.9.5\glm```
+     - ```$(SolutionDir)\MinecraftStyleOpenGL\Dependencies\GLFW_3.3\include```
   - Linker -> General -> Additional Library Directories
-     - $(SolutionDir)\MinecraftStyleOpenGL\Dependencies\glew-2.1.0\lib\Release\Win32
-     - $(SolutionDir)\MinecraftStyleOpenGL\Dependencies\GLFW_3.3\lib-vc2019
+     - ```$(SolutionDir)\MinecraftStyleOpenGL\Dependencies\glew-2.1.0\lib\Release\Win32```
+     - ```$(SolutionDir)\MinecraftStyleOpenGL\Dependencies\GLFW_3.3\lib-vc2019```
   - Linker -> Input -> Additional Dependencies:
 ```
 openGL32.lib
