@@ -189,40 +189,40 @@ struct MyApp : public Helper::App
 						cubeStone->InsideLoop(view, 10, glm::vec3(x * 20, y * 20, z * 20), -90.0f, glm::vec3(1, 0, 0));
 					}
 				}
-			}
+			}	
+		}
 
-			// to have moving clouds, we need time
-			static float time = 0.0;
-			time += .01;
+		// to have moving clouds, we need time
+		static float time = 0.0;
+		time += .1;
 
-			// it helps us to expand the clouds' cube from each other
-			bool checker = false;
+		// it helps us to expand the clouds' cube from each other
+		bool checker = false;
 
-			// main loops for the clouds
-			for (int x1 = 0; x1 < 40; ++x1)
+		// main loops for the clouds
+		for (int x1 = 0; x1 < 40; ++x1)
+		{
+			for (int z1 = 0; z1 < 40; ++z1)
 			{
-				for (int z1 = 0; z1 < 40; ++z1)
+				auto perlin_x = ((float)x1 / 2.0f + generated_rand_seed) / 0.04;
+				auto perlin_z = ((float)z1 / 2.0f + generated_rand_seed) / 0.04;
+
+				auto max_y = (int)(generated_Noise_ForClouds.GetNoise(perlin_x, perlin_z) * 10);
+
+				max_y += 5;
+
+				if (z1 > generated_rand_cloud_layer[x1] && generated_rand_cloud_layer[x1] < z1)
 				{
-					auto perlin_x = ((float)x1 / 2.0f + generated_rand_seed) / 0.04;
-					auto perlin_z = ((float)z1 / 2.0f + generated_rand_seed) / 0.04;
-
-					auto max_y = (int)(generated_Noise_ForClouds.GetNoise(perlin_x, perlin_z) * 10);
-
-					max_y += 5;
-
-					if (z1 > generated_rand_cloud_layer[x1] && generated_rand_cloud_layer[x1] < z1)
-					{
-						cubeCloud->InsideLoop(view,
-							10,
-							glm::vec3(
-							(float)x1 * 20 + oscillator->normalize(time) +
-								(float)(checker ? -20 : +20),
-								max_y * 20 + 500,
-								(float)z1 * 20 + (float)(checker ? -20 : +20)),
-							-90.0f,
-							glm::vec3(1, 0, 0));
-						checker = !checker;
-					}
+					cubeCloud->InsideLoop(view,
+						10,
+						glm::vec3(
+						(float)x1 * 20 + oscillator->normalize(time) +
+							(float)(checker ? -20 : +20),
+							max_y * 20 + 500,
+							(float)z1 * 20 + (float)(checker ? -20 : +20)),
+						-90.0f,
+						glm::vec3(1, 0, 0));
+					checker = !checker;
 				}
 			}
 		}
