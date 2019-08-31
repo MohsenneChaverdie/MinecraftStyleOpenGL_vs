@@ -22,7 +22,7 @@ glew32.lib
 glu32.lib
 ```
   - Copy glew32.dll and glfw3.dll to the place that main.cpp is located.
-  - and to have a portable application, there is only need for texture folder, in addition of glew32.dll and glfw3.dll in release folder. By then, your application should be working on another computer.
+  - In order to have a portable application, there is only need for texture folder, in addition of glew32.dll and glfw3.dll in release folder. By then, your application should be working on another computer.
 
 - There is no need to statically reference GLEW.
 
